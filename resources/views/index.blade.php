@@ -87,7 +87,7 @@
         });
         //监听自定义工具栏点击，以添加代码为例
         //建立websocket连接
-        socket = new WebSocket('ws://chat.aishyu.com/ws?token=' + $.cookie('token'));
+        socket = new WebSocket('ws://chat.cc/ws?token=' + $.cookie('token'));
         socket.onopen = function () {
             ping = setInterval(function () {
                 sendMessage(socket, '{"type":"ping"}');

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Event\Broadcast;
 use App\Http\Resources\FriendUser;
+use App\Models\Friend;
+use App\Models\SystemMessage;
+use App\Models\User;
 use App\Repositories\FriendRepositoryEloquent;
 use App\Repositories\GroupRepositoryEloquent;
 use App\Repositories\SystemMessageRepositoryEloquent;
@@ -73,7 +76,7 @@ class FriendController extends Controller
             'user_id'   => auth()->user()->id,
         ])->first();
 
-        if ($isFriend instanceof $this->friendRepo->model) {
+        if ($isFriend instanceof Friend) {
             return response()->json(
                 [
                     'code' => 500,
@@ -136,13 +139,13 @@ class FriendController extends Controller
     {
         $systemMsg = $this->systemMessageRepo->find($id);
 
-        if ($systemMsg instanceof $this->systemMessageRepo->model) {
+        if ($systemMsg instanceof SystemMessage) {
             $isFriend = $this->friendRepo->where([
                 'user_id'   => $systemMsg->user_id,
                 'friend_id' => $systemMsg->from_id,
             ])->first();
 
-            if ($isFriend instanceof $this->friendRepo->model) {
+            if ($isFriend instanceof Friend) {
                 return response()->json(
                     [
                         'code' => 500,
@@ -156,7 +159,7 @@ class FriendController extends Controller
                 DB::beginTransaction();
                 $systemMsg->save();
 
-                if ($systemMsg->status == $this->systemMessageRepo->model::FRIEND_ASSENT) {
+                if ($systemMsg->status == SystemMessage::FRIEND_ASSENT) {
                     $this->friendRepo->create([
                             'user_id'         => $systemMsg->user_id,
                             'friend_id'       => $systemMsg->from_id,
@@ -174,18 +177,18 @@ class FriendController extends Controller
                     $this->systemMessageRepo->create([
                         'user_id' => $systemMsg->from_id,
                         'from_id' => $systemMsg->user_id,
-                        'type'    => $this->systemMessageRepo->model::FRIEND_NOTICE,
-                        'status'  => $this->systemMessageRepo->model::FRIEND_ASSENT,
+                        'type'    => SystemMessage::FRIEND_NOTICE,
+                        'status'  => SystemMessage::FRIEND_ASSENT,
                     ]);
 
                     $user = $this->userRepo->find($systemMsg->from_id);
 
-                    if (!$user instanceof $this->userRepo->model)
+                    if (!$user instanceof User)
                         throw new \Exception('User does not exist');
 
                     $user->setAttribute('groupid', $request->input('groupid'));
 
-                    if (auth()->user() instanceof $this->userRepo->model) {
+                    if (auth()->user() instanceof User) {
                         $addList = new Broadcast(collect([
                             'user' => $systemMsg->from_id,
                             'data' => [
@@ -207,12 +210,12 @@ class FriendController extends Controller
 
                         if (!$success) throw new \Exception('error');
                     }
-                } elseif ($systemMsg->status == $this->systemMessageRepo->model::FRIEND_REFUSAL) {
+                } elseif ($systemMsg->status == SystemMessage::FRIEND_REFUSAL) {
                     $this->systemMessageRepo->create([
                         'user_id' => $systemMsg->from_id,
                         'from_id' => $systemMsg->user_id,
-                        'type'    => $this->systemMessageRepo->model::FRIEND_NOTICE,
-                        'status'  => $this->systemMessageRepo->model::FRIEND_REFUSAL,
+                        'type'    => SystemMessage::FRIEND_NOTICE,
+                        'status'  => SystemMessage::FRIEND_REFUSAL,
                     ]);
                 }
 
@@ -237,10 +240,10 @@ class FriendController extends Controller
 
                 $data = [
                     'code' => 200,
-                    'msg'  => $systemMsg->status == $this->systemMessageRepo->model::FRIEND_REFUSAL ? '已拒绝' : 'success',
+                    'msg'  => $systemMsg->status == SystemMessage::FRIEND_REFUSAL ? '已拒绝' : 'success',
                 ];
 
-                if ($systemMsg->status == $this->systemMessageRepo->model::FRIEND_ASSENT)
+                if ($systemMsg->status == SystemMessage::FRIEND_ASSENT)
                     $data['data'] = new FriendUser($user);
 
                 return response()->json($data);

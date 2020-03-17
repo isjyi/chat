@@ -140,7 +140,7 @@ class GroupController extends Controller
 
         $group = $this->groupRepo->find($id);
 
-        if ($group instanceof $this->groupRepo->model) {
+        if ($group instanceof Group) {
             return response()->json([
                 'code' => 0,
                 'msg'  => '',
