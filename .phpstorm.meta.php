@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-03-14 12:25:57.
+    * Generated on 2020-03-17 14:23:49.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -162,7 +162,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
@@ -320,7 +320,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
@@ -478,7 +478,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
@@ -636,7 +636,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
@@ -794,7 +794,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
@@ -952,7 +952,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
@@ -1110,7 +1110,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
@@ -1268,7 +1268,7 @@ namespace PHPSTORM_META {
         'tymon.jwt.secret' => \Tymon\JWTAuth\Console\JWTGenerateSecretCommand::class,
         'tymon.jwt.validators.payload' => \Tymon\JWTAuth\Validators\PayloadValidator::class,
         'url' => \Illuminate\Routing\UrlGenerator::class,
-        'userRepo' => \App\Facade\Repositories\User::class,
+        'userRepo' => \App\Repositories\UserRepositoryEloquent::class,
         'validation.presence' => \Illuminate\Validation\DatabasePresenceVerifier::class,
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
