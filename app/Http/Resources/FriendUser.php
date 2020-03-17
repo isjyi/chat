@@ -20,6 +20,7 @@ class FriendUser extends JsonResource
             'status' => $this->status,
             'sign' => $this->sign,
             'avatar' => $this->avatar,
+            'type' => $this->type,
             "groupid" => $this->groupid,
         ];
     }

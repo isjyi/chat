@@ -187,6 +187,7 @@ class FriendController extends Controller
                         throw new \Exception('User does not exist');
 
                     $user->setAttribute('groupid', $request->input('groupid'));
+                    $user->setAttribute('type', 'friend');
 
                     if (auth()->user() instanceof User) {
                         $addList = new Broadcast(collect([
