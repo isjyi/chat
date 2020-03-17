@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('status', 20)->comment('online在线 hide隐身 offline离线');
+            $table->string('status', 20)->default('offline')->comment('online在线 hide隐身 offline离线');
             $table->rememberToken();
             $table->timestamps();
 
