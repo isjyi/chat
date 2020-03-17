@@ -32,6 +32,14 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+
+    $(function () {
+        if ($.cookie('token') == 'null' || $.cookie('token') == undefined) {
+            setTimeout(function () {
+                window.location = "/login";
+            });
+        }
+    });
 </script>
 <script>
     var socket;
