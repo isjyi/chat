@@ -61,7 +61,7 @@ class WebSocketService implements WebSocketHandlerInterface
         // 这里可以做个try/catch
         Event::fire($onlineNotice);
 
-        $user->offlineMessages->each(function ($msg) use ($request, $server) {
+        $user->offlineMessages()->where('status', 0)->get()->each(function ($msg) use ($request, $server) {
             $res = $server->push($request->fd, $msg->data);
             if ($res) {
                 $msg->status = 1;
