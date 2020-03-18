@@ -13,7 +13,7 @@
 ## 声明
 * 此项目是基于LaravelS作为服务端，所以在此之前，你要熟悉swoole、laravel、还有将他们完美结合的`LaravelS`[https://github.com/hhxsv5/laravel-s](https://github.com/hhxsv5/laravel-s)
 * 前端部分是采用layui,在此郑重说明，layui中的im部分`layim`并不开源，仅供交流学习，请勿将此项目中的layim用作商业用途。
-* 此项目是基于https://github.com/woann/chat完整重构
+* 此项目是基于https://github.com/woann/chat 完整重构
 
 ## 功能列表
 * 登录 | 没什么好说的...
